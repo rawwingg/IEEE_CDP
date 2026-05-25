@@ -4,14 +4,10 @@ import time
 
 #isolated servo adjustment code
 s1 = 18
-s2 = 13
 PWM_FREQ = 50
 
 h1 = lgpio.gpiochip_open(0)
 lgpio.gpio_claim_output(h1, s1)  # <-- this is the key line
-
-h2 = lgpio.gpiochip_open(0)
-lgpio.gpio_claim_output(h2, s2)
 
 def set_servo_angle(angle, SERVO_GPIO, h):
     angle    = max(0, min(180, angle))
